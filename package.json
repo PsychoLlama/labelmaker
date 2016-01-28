@@ -7,6 +7,10 @@
     "test": "jasmine",
     "build": "webpack --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PsychoLlama/taggerific.git"
+  },
   "keywords": [
     "gun",
     "gunDB",
