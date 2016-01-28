@@ -1,5 +1,5 @@
 {
-  "name": "tag",
+  "name": "taggerific",
   "version": "0.1.0",
   "description": "Bring tags to gunDB",
   "main": "index.js",
@@ -23,7 +23,7 @@
   "author": "Jesse Gibson <jesse@gundb.io> (http://techllama.com)",
   "license": "Zlib OR MIT OR Apache-2.0",
   "devDependencies": {
-    "gun": "^0.2.5",
+    "gun": "^0.3.1",
     "webpack": "^1.12.11"
   }
 }
