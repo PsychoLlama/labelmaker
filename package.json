@@ -1,5 +1,5 @@
 {
-  "name": "taggerific",
+  "name": "labelmaker",
   "version": "0.1.0",
   "description": "Bring tags to gunDB",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PsychoLlama/taggerific.git"
+    "url": "git+https://github.com/PsychoLlama/labelmaker.git"
   },
   "keywords": [
     "gun",

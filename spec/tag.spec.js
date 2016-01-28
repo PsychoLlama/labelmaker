@@ -86,7 +86,7 @@ describe('The tagger function', function () {
       gun.put({
         data: true
       }).tag(tag);
-      gun.tagged(tag).map().val(done);
+      gun.tagged(tag).val(done);
     });
 
     it('should be able to find every tag', function (done) {
