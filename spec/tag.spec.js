@@ -1,5 +1,5 @@
-/*global describe, it, expect, jasmine, beforeEach, afterAll*/
-/*jslint node: true, nomen: true*/
+/* global describe, it, expect, jasmine, beforeEach, afterAll*/
+/* eslint-disable no-console*/
 'use strict';
 
 /*
@@ -8,6 +8,12 @@
   gun@v0.3, and may not work
   for older versions.
 */
+
+var tagger = require('../index');
+var scope = require('../lib/scope');
+var Gun = require('gun');
+var fs = require('fs');
+var path = require('path');
 
 // Squelch gun peer connection warnings
 console.log = (function () {
@@ -18,6 +24,10 @@ console.log = (function () {
       return;
     }
 
+		if (name && name.match(/Hello wonderful person/)) {
+			return;
+		}
+
     log.apply(console, arguments);
   };
 }());
@@ -26,9 +36,6 @@ console.log = (function () {
 // set the default timeout
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
 
-var tagger = require('../index');
-var scope = require('../lib/scope');
-var Gun = require('gun');
 tagger(Gun);
 
 describe('The tagger function', function () {
@@ -98,5 +105,10 @@ describe('The tagger function', function () {
 });
 
 afterAll(function () {
-  require('fs').unlink(__dirname + '/../tag.spec-data.json');
+	var file = path.join(
+		__dirname,
+		'..',
+		'tag.spec-data.json'
+	);
+  fs.unlink(file);
 });
