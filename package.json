@@ -1,12 +1,12 @@
 {
   "name": "labelmaker",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Bring tags to gunDB",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
 		"test": "npm run test-suite && npm run lint",
     "test-suite": "jasmine",
-		"lint": "eslint lib/ --fix",
+		"lint": "eslint --fix src/",
     "build": "webpack --watch"
   },
   "repository": {
@@ -27,11 +27,9 @@
     "groups"
   ],
   "author": "Jesse Gibson <jesse@gundb.io> (http://techllama.com)",
-  "license": "Zlib OR MIT OR Apache-2.0",
+  "license": "MIT",
   "devDependencies": {
-    "gun": "^0.3.1",
-    "jasmine": "^2.4.1",
-    "webpack": "^1.12.11"
+    "jasmine": "^2.4.1"
   },
   "dependencies": {
     "gun": "^0.3.92"

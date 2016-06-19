@@ -9,8 +9,8 @@
   for older versions.
 */
 
-var tagger = require('../index');
-var scope = require('../lib/scope');
+var tagger = require('../src/index');
+var scope = require('../src/scope');
 var Gun = require('gun');
 var fs = require('fs');
 var path = require('path');
