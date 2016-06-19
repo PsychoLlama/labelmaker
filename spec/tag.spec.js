@@ -2,18 +2,11 @@
 /* eslint-disable no-console*/
 'use strict';
 
-/*
-  Warning:
-  These tests are written for
-  gun@v0.3, and may not work
-  for older versions.
-*/
-
 var tagger = require('../src/index');
 var scope = require('../src/scope');
-var Gun = require('gun');
 var fs = require('fs');
 var path = require('path');
+var Gun;
 
 // Squelch gun peer connection warnings
 console.log = (function () {
@@ -32,6 +25,7 @@ console.log = (function () {
   };
 }());
 
+Gun = require('gun');
 
 // set the default timeout
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
