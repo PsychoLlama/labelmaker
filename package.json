@@ -4,9 +4,9 @@
   "description": "Bring tags to gunDB",
   "main": "src/index.js",
   "scripts": {
-		"test": "npm run test-suite && npm run lint",
+    "test": "npm run test-suite && npm run lint",
     "test-suite": "jasmine",
-		"lint": "eslint --fix src/",
+    "lint": "eslint --fix src/",
     "build": "webpack --watch"
   },
   "repository": {
@@ -29,6 +29,8 @@
   "author": "Jesse Gibson <jesse@gundb.io> (http://techllama.com)",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-llama": "^3.0.0",
     "jasmine": "^2.4.1"
   },
   "dependencies": {

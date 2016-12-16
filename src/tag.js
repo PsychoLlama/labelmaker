@@ -1,8 +1,8 @@
 /* jslint node: true, nomen: true*/
 'use strict';
 
-var scope = require('./scope');
-var log = require('gun/gun').log;
+const scope = require('./scope');
+const log = require('gun/gun').log;
 
 // check compatibility
 
@@ -17,7 +17,7 @@ function invalid (value) {
     log('Only objects can be tagged');
     return true;
   }
-	return false;
+  return false;
 }
 
 /*
@@ -34,7 +34,7 @@ function invalid (value) {
  */
 function pushTag (gun, tag) {
   gun.get(scope + tag).val(function (group) {
-    gun.get(scope + 'all tags').init().path(tag).put(group);
+    gun.get(`${scope}all tags`).init().path(tag).put(group);
   });
 }
 

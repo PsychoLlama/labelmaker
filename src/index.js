@@ -1,8 +1,8 @@
 /* jslint node: true*/
 'use strict';
 
-var tagger = require('./tag');
-var finder = require('./find');
+const tagger = require('./tag');
+const finder = require('./find');
 
 /**
  * attach - adds the methods to the gun instance
