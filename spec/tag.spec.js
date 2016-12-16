@@ -2,30 +2,29 @@
 /* eslint-disable no-console*/
 'use strict';
 
-var tagger = require('../src/index');
-var scope = require('../src/scope');
-var fs = require('fs');
-var path = require('path');
-var Gun;
+const tagger = require('../src/index');
+const scope = require('../src/scope');
+const fs = require('fs');
+const path = require('path');
 
 // Squelch gun peer connection warnings
 console.log = (function () {
-  var log = console.log;
+  const log = console.log;
   return function (name) {
 
     if (name && name.match(/Warning!/i)) {
       return;
     }
 
-		if (name && name.match(/Hello wonderful person/)) {
-			return;
-		}
+    if (name && name.match(/Hello wonderful person/)) {
+      return;
+    }
 
     log.apply(console, arguments);
   };
 }());
 
-Gun = require('gun');
+const Gun = require('gun');
 
 // set the default timeout
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
@@ -33,7 +32,7 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
 tagger(Gun);
 
 describe('The tagger function', function () {
-  var gun, tag;
+  let gun, tag;
 
   beforeEach(function () {
     // generate a new tag each test
@@ -41,7 +40,7 @@ describe('The tagger function', function () {
 
     // make a new gun instance
     gun = new Gun({
-      file: 'tag.spec-data.json'
+      file: 'tag.spec-data.json',
     });
   });
 
@@ -58,13 +57,13 @@ describe('The tagger function', function () {
 
     it('should index data', function (done) {
       gun.put({
-        name: 'success'
+        name: 'success',
       }).tag(tag).get(scope + tag).map().val(done);
     });
 
     it('should not pseudo-merge nodes', function (done) {
       gun.put({
-        data: true
+        data: true,
       }).tag(tag).get(scope + tag).map().val(function (val) {
         expect(val.name).toBe(undefined);
         expect(val.data).toBe(true);
@@ -74,7 +73,7 @@ describe('The tagger function', function () {
 
     it('should be able to take multiple tags', function (done) {
       gun.put({
-        test: true
+        test: true,
       }).tag(tag, 'custom');
       gun.tagged('custom').val(done);
     });
@@ -85,7 +84,7 @@ describe('The tagger function', function () {
 
     it('should be able to find tags', function (done) {
       gun.put({
-        data: true
+        data: true,
       }).tag(tag);
       gun.tagged(tag).val(done);
     });
@@ -99,7 +98,7 @@ describe('The tagger function', function () {
 });
 
 afterAll(function () {
-	var file = path.join(
+  const file = path.join(
 		__dirname,
 		'..',
 		'tag.spec-data.json'
